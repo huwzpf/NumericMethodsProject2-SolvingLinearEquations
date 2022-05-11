@@ -15,34 +15,30 @@ void test_for_given_size(int e, int i, int f, std::ofstream& file);
 int main()
 {
 
+    // Generate matrix A with 5+e on diagonal and -1 on -2,-1,1,2 diagonals and matrix b with elements given by n-th element = sin(f+1 * n+1)
+    // len(b) = N = 9cd
+
     /*
-            184297 - > c = 9, d = 7, e = 2, f = 4
+            c = 9, d = 7, e = 2, f = 4
             N = 9cd = 997
     */
     
     int N = 997, e = 2, f = 4;
     Matrix a, b;
     
-    //ZADANIE A
-
-    a = move(constructA(5 + e, -1, -1, N));
     b = move(constructB(f, N));
-    cout << string(a) << endl << string(b) << endl;
-    // ZADANIE B
-
+    //system solvable with iterative methods
+    a = move(constructA(5 + e, -1, -1, N));
     cout << "\n\n1) a1 = " << 5 + e << ", a2 = -1, a3 = -1, N = " << N << endl;
     test_for_given_a_b(a, b);
     a = move(constructA(3, -1, -1, N));
 
-    //ZADANIE C+ D
-
+    // system not solvable with iterative methods
     cout << "\n\n2) a1 = 3, a2 = -1, a3 = -1, N = " << N << endl;
     test_for_given_a_b(a, b);
 
 
-    
-    //GENEROWANIE DANYCH DO ZADANIA E
-
+    // generate data for various sizes of A and b
     int start_N = 100, end_N = 5100, step_N = 200;
     ofstream file;
     file.open("data.csv");
