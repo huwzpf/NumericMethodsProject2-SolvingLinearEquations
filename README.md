@@ -1,3 +1,3 @@
 # NumericMethodsProject2-SolvingLinearEquations
-!["plots"](plot_w_lu.png)
+!["plots"](plots.png)
 !["results"](results.png)
